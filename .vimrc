@@ -49,6 +49,10 @@
 " show the `best match so far' as search strings are typed:
   set incsearch
 
+" searching is case insensitive when all lowercase
+  set ignorecase
+  set smartcase
+ 
 " assume the /g flag on :s substitutions to replace all matches in a line:
   set gdefault
 
@@ -72,15 +76,6 @@
 
 " REMEMBER LAST POSITION IN FILE
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
-
-" MAKE IT EASY TO UPDATE/RELOAD_vimrc 
-  :nmap ,s :source ~/.vimrc<cr>
-  :nmap ,v :tabe ~/.vimrc<cr>
-  
-" TAB NAVIGATION
-  :nmap ,tn :tabnext<cr>
-  :nmap ,tp :tabprevious<cr>  
-  :nmap ,te :tabedit  
 
 " SHELL
 
@@ -135,6 +130,10 @@
 " Turn off rails bits of statusbar
   let g:rails_statusline=0
  
+" MAKE IT EASY TO UPDATE/RELOAD_vimrc 
+  :nmap ,s :source ~/.vimrc<cr>
+  :nmap ,v :tabe ~/.vimrc<cr>
+
 " TagList {{{
   let Tlist_GainFocus_On_ToggleOpen = 1
   let Tlist_Process_File_Always = 1
@@ -159,11 +158,19 @@
   autocmd FileType irb inoremap <buffer> <silent> <Cr> <Esc>:<C-u>ruby v=VIM::Buffer.current;v.append(v.line_number, eval(v[v.line_number]).inspect)<Cr>
   nnoremap ,irb :<C-u>below new<Cr>:setfiletype irb<Cr>:set syntax=ruby<Cr>:set buftype=nofile<Cr>:set bufhidden=delete<Cr>i
 
-  " Textmate Fuzzy Finder ignores
-  let g:fuzzy_ignore = "*.png;*.PNG;*.JPG;*.jpg;*.GIF;*.gif;vendor/**;coverage/**;tmp/**"
+" Textmate Fuzzy Finder ignores
+  let g:fuzzy_ignore = "*.png;*.PNG;*.JPG;*.jpg;*.GIF;*.gif;doc/**;vendor/**;coverage/**;tmp/**"
   let g:fuzzy_matching_limit = 20
 
-  " Textmate Fuzzy Finder - cmd-enter to open selected file in new tab
+" Textmate Fuzzy Finder - cmd-enter to open selected file in new tab
+  let g:FuzzyFinderOptions = { 'Base':{}, 'Buffer':{}, 'File':{}, 'Dir':{}, 'MruFile':{}, 'MruCmd':{}, 'FavFile':{}, 'Tag':{}, 'TaggedFile':{}}
   let g:FuzzyFinderOptions.Base.key_open_tab = '<D-CR>'
 
-  runtime user_settings.vim
+" MAKE ARROW KEYS WORK IN CONSOLE VI
+  if !has("gui_running") | set term=xterm | endif
+
+" make it pretty
+  colors twilight2
+
+runtime configure_plugins.vim
+runtime mappings.vim
