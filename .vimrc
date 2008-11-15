@@ -107,15 +107,12 @@
 
   :nmap ,sh :Shell 
 
-" find file in project
-  :nmap ,t :FuzzyFinderTextMate<cr> 
-
 " Run file with 
   :nmap ,sf :Shell script/spec -fn %<cr>
   :nmap ,st :Shell ruby %<cr>
   
-" Quick, jump out of insert mode while no one is looking
-  :imap ii <Esc>
+" Get out of insert mode with cmd-i
+  :imap <D-i> <Esc>
 
 " Nice statusbar
   set laststatus=2
@@ -165,5 +162,8 @@
   " Textmate Fuzzy Finder ignores
   let g:fuzzy_ignore = "*.png;*.PNG;*.JPG;*.jpg;*.GIF;*.gif;vendor/**;coverage/**;tmp/**"
   let g:fuzzy_matching_limit = 20
+
+  " Textmate Fuzzy Finder - cmd-enter to open selected file in new tab
+  let g:FuzzyFinderOptions.Base.key_open_tab = '<D-CR>'
 
   runtime user_settings.vim
