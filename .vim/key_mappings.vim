@@ -33,15 +33,16 @@
   :nmap ,sym :s/\v(['"])(.{-})\1/:\2<cr>
 
 " delete all buffers
-  :nmap ,bd :1,9999bd<cr>
+  :nmap ,BD :1,9999bd<cr>
 
 " irb goodness
   autocmd FileType irb inoremap <buffer> <silent> <Cr> <Esc>:<C-u>ruby v=VIM::Buffer.current;v.append(v.line_number, eval(v[v.line_number]).inspect)<Cr>
   nnoremap ,irb :<C-u>below new<Cr>:setfiletype irb<Cr>:set syntax=ruby<Cr>:set buftype=nofile<Cr>:set bufhidden=delete<Cr>i
 
-" Textmate Fuzzy Finder - ,t to launch; cmd-enter to open selected file in new tab
+" Fuzzy Finder - ,t to launch; ,b just for buffers; cmd-enter to open selected file in new tab
   let g:FuzzyFinderOptions = { 'Base':{}, 'Buffer':{}, 'File':{}, 'Dir':{}, 'MruFile':{}, 'MruCmd':{}, 'FavFile':{}, 'Tag':{}, 'TaggedFile':{}}
   let g:FuzzyFinderOptions.Base.key_open_tab = '<D-CR>'
   :nmap ,t :FuzzyFinderTextMate<cr> 
+  :nmap ,b :FuzzyFinderBuffer<cr> 
   
 
