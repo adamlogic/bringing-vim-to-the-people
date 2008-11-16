@@ -28,6 +28,10 @@
   :nmap ,r :set wrap<cr>
   :nmap ,R :set nowrap<cr>
 
+" quoting and symbolizing strings
+  :nmap ,q :s/\v:(\w+)/'\1'
+  :nmap ,sym :s/\v(['"])(.{-})\1/:\2
+
 " delete all buffers
   :nmap ,bd :1,9999bd
 
