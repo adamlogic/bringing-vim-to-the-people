@@ -3,7 +3,7 @@
   :nmap ,v :tabe ~/.vimrc<cr>
   
 " display file browser
-  :nmap <F2> :NERDTreeToggle<cr>
+  :nmap ,d :NERDTreeToggle<cr>
 
 " tag list
   :nmap <F3> :TlistToggle<cr>
