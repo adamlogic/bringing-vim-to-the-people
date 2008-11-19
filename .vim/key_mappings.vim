@@ -32,9 +32,6 @@
   :nmap ,q :s/\v:(\w+)/'\1'<cr>
   :nmap ,sym :s/\v(['"])(.{-})\1/:\2<cr>
 
-" delete all buffers
-  :nmap ,BD :1,9999bd<cr>
-
 " irb goodness
   autocmd FileType irb inoremap <buffer> <silent> <Cr> <Esc>:<C-u>ruby v=VIM::Buffer.current;v.append(v.line_number, eval(v[v.line_number]).inspect)<Cr>
   nnoremap ,irb :<C-u>below new<Cr>:setfiletype irb<Cr>:set syntax=ruby<Cr>:set buftype=nofile<Cr>:set bufhidden=delete<Cr>i
