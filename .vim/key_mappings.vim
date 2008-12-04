@@ -41,5 +41,6 @@
   let g:FuzzyFinderOptions.Base.key_open_tab = '<D-CR>'
   :nmap ,t :FuzzyFinderTextMate<cr> 
   :nmap ,b :FuzzyFinderBuffer<cr> 
+  :nmap ,ff :ruby finder.rescan!<cr>
   
 
