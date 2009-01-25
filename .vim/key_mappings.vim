@@ -16,7 +16,7 @@
   :nmap ,sf :Shell script/spec -fn %<cr>
 
 " run current ruby file
-  :nmap ,st :Shell ruby %<cr>
+  :nmap ,st :Shell ruby -Itest %<cr>
   
 " get out of insert mode with cmd-i
   :imap <D-i> <Esc>
