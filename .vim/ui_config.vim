@@ -33,9 +33,3 @@
  
 " make it pretty
   colors twilight2
-
-" column and row highlighting
-  set cursorline
-  set cursorcolumn
-  hi CursorLine guibg=#191919
-  hi CursorColumn guibg=#191919
