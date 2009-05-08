@@ -136,6 +136,8 @@
   let g:fuzzy_enumerating_limit = 20
   let g:fuzzy_path_display = 'relative_path'
   let g:fuzzy_ceiling = 5000
+  let g:FuzzyFinderOptions={'Base':{}}
+  let g:FuzzyFinderOptions.Base.key_open_tab = '<D-CR>'
 
 " Use FuzzyFinder to replace built-in tag navigation :tag and <C-]>:
   nnoremap <silent> <C-f><C-t> :FuzzyFinderTag!<CR>
